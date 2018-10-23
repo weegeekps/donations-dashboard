@@ -1,7 +1,11 @@
 import * as React from 'react';
+import { Provider } from 'react-redux';
+import { createStore } from 'redux';
 import styled, { keyframes } from 'styled-components';
 
 import logo from './logo.svg';
+
+import * as rootReducer from './reducers';
 
 const AppContainer = styled.div`
   text-align: center;
