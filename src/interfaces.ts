@@ -1,11 +1,33 @@
 export interface IDonation {
   amount: number;
-  donor: string;
-  message: string;
-  time: Date;
+  avatarImageURL: string;
+  createdDateUTC: string;
+  displayName: string;
+  donorID: string;
+  message: string | null;
+  participantID: number;
 }
 
 export interface IParticipant {
-  name: string;
-  participantId: string;
+  avatarImageURL: string;
+  createdDateUTC: string; // TODO: Munge this into a moment.
+  displayName: string;
+  eventID: number;
+  eventName: string;
+  fundraisingGoal: number;
+  participantID: number;
+  numDonations: number;
+  sumDonations: number;
+  sumPledges: number;
+}
+
+export interface IAppState {
+  donations: {
+    isFetching: boolean;
+    values: IDonation[];
+  };
+  participant: {
+    isFetching: boolean;
+    value: IParticipant;
+  };
 }
