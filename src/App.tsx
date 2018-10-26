@@ -3,6 +3,8 @@ import styled, { keyframes } from 'styled-components';
 
 import logo from './logo.svg';
 
+import TestButtons from './TestButtons';
+
 const AppContainer = styled.div`
   text-align: center;
 `;
@@ -47,6 +49,7 @@ class App extends React.Component {
         <Intro>
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </Intro>
+        <TestButtons />
       </AppContainer>
     );
   }
