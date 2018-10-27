@@ -47,6 +47,7 @@ class App extends React.Component {
           <Title>Welcome to React</Title>
         </Header>
         <Intro>
+          <h2 className="highlight">This is secondary header</h2>
           To get started, edit <code>src/App.tsx</code> and save to reload.
         </Intro>
         <TestButtons />
