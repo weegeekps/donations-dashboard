@@ -1,56 +1,51 @@
 import * as React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
 
-import logo from './logo.svg';
-
-import TestButtons from './TestButtons';
+import { Colors } from './styles';
 
 const AppContainer = styled.div`
-  text-align: center;
-`;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 80rem;
+  height: 100vh;
+  display: grid;
+  grid-template-columns: 100vw;
+  grid-template-rows: 6rem 10rem auto;
+  grid-template-areas:
+    'navbar'
+    'infobar'
+    'content';
 
-const Header = styled.header`
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
-`;
-
-const Intro = styled.p`
-  font-size: large;
-`;
-
-const Title = styled.h1`
-  font-size: 1.5em;
-`;
-
-const LogoSpinKeyframes = keyframes`
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
+  @media (min-width: 50rem) {
+    grid-template-columns: auto 18rem;
+    grid-template-rows: 6rem auto;
+    grid-template-areas:
+      'navbar navbar'
+      'content infobar';
   }
 `;
 
-const LogoImg = styled.img`
-  animation: ${LogoSpinKeyframes} infinite 20s linear;
-  height: 80px;
+const NavBarStub = styled.div`
+  background-color: ${Colors.PRIMARY};
+  grid-area: navbar;
+`;
+
+const ContentStub = styled.div`
+  grid-area: content;
+`;
+
+const InfoBarStub = styled.div`
+  background-color: ${Colors.SECONDARY};
+  grid-area: infobar;
 `;
 
 class App extends React.Component {
   public render() {
     return (
       <AppContainer>
-        <Header>
-          <LogoImg src={logo} alt="logo" />
-          <Title>Welcome to React</Title>
-        </Header>
-        <Intro>
-          <h2 className="highlight">This is secondary header</h2>
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </Intro>
-        <TestButtons />
+        <NavBarStub />
+        <ContentStub />
+        <InfoBarStub />
       </AppContainer>
     );
   }
