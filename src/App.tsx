@@ -1,22 +1,19 @@
 import * as React from 'react';
 import styled from 'styled-components';
 
-import { Colors } from './styles';
+import NavBar, { INavBarLink } from './components/navbar';
+import { Breakpoints, Colors } from './styles';
 
 const AppContainer = styled.div`
   margin-left: auto;
   margin-right: auto;
   max-width: 80rem;
   height: 100vh;
-  display: grid;
-  grid-template-columns: 100vw;
-  grid-template-rows: 6rem 10rem auto;
-  grid-template-areas:
-    'navbar'
-    'infobar'
-    'content';
+  display: flex;
+  flex-direction: column;
 
-  @media (min-width: 50rem) {
+  @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {
+    display: grid;
     grid-template-columns: auto 18rem;
     grid-template-rows: 6rem auto;
     grid-template-areas:
@@ -25,27 +22,42 @@ const AppContainer = styled.div`
   }
 `;
 
-const NavBarStub = styled.div`
-  background-color: ${Colors.PRIMARY};
-  grid-area: navbar;
-`;
-
 const ContentStub = styled.div`
-  grid-area: content;
+  min-height: 30rem;
+
+  @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {
+    grid-area: content;
+  }
 `;
 
 const InfoBarStub = styled.div`
+  min-height: 10rem;
   background-color: ${Colors.SECONDARY};
-  grid-area: infobar;
+
+  @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {
+    grid-area: infobar;
+  }
 `;
+
+// TODO: Move this to a JSON or something easy to modify.
+const navLinks: INavBarLink[] = [
+  {
+    displayName: 'Twitch.tv',
+    targetUrl: 'https://www.twitch.tv/weegee101',
+  },
+  {
+    displayName: 'Extra Life',
+    targetUrl: 'https://www.extra-life.org/participant/weegee101',
+  },
+];
 
 class App extends React.Component {
   public render() {
     return (
       <AppContainer>
-        <NavBarStub />
-        <ContentStub />
+        <NavBar links={navLinks} />
         <InfoBarStub />
+        <ContentStub />
       </AppContainer>
     );
   }
