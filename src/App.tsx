@@ -20,12 +20,14 @@ const AppContainer = styled.div`
     grid-template-areas:
       'navbar navbar'
       'content infobar';
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   }
 `;
 
 const InfoBarStub = styled.div`
   min-height: 10rem;
   background-color: ${Colors.SECONDARY};
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
   @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {
     grid-area: infobar;
