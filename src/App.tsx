@@ -12,7 +12,7 @@ const AppContainer = styled.div`
   display: flex;
   flex-direction: column;
 
-  @media (min-width: ${Breakpoints.FULL_WIDTH}) {
+  @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {
     display: grid;
     grid-template-columns: auto 18rem;
     grid-template-rows: 6rem auto;
@@ -25,7 +25,7 @@ const AppContainer = styled.div`
 const ContentStub = styled.div`
   min-height: 30rem;
 
-  @media (min-width: ${Breakpoints.FULL_WIDTH}) {
+  @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {
     grid-area: content;
   }
 `;
@@ -34,7 +34,7 @@ const InfoBarStub = styled.div`
   min-height: 10rem;
   background-color: ${Colors.SECONDARY};
 
-  @media (min-width: ${Breakpoints.FULL_WIDTH}) {
+  @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {
     grid-area: infobar;
   }
 `;
@@ -47,7 +47,7 @@ const navLinks: INavBarLink[] = [
   },
   {
     displayName: 'Extra Life',
-    targetUrl: 'https://www.extra-life.org/',
+    targetUrl: 'https://www.extra-life.org/participant/weegee101',
   },
 ];
 

@@ -7,5 +7,6 @@ export enum Colors {
 }
 
 export enum Breakpoints {
-  FULL_WIDTH = '50rem',
+  TABLET_WIDTH = '34rem',
+  DESKTOP_WIDTH = '60rem',
 }
