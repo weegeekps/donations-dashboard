@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import NavBar, { INavBarLink } from './components/navbar';
+import DonationsContainer from './containers/donations';
 import { Breakpoints, Colors } from './styles';
 
 const AppContainer = styled.div`
@@ -19,20 +20,14 @@ const AppContainer = styled.div`
     grid-template-areas:
       'navbar navbar'
       'content infobar';
-  }
-`;
-
-const ContentStub = styled.div`
-  min-height: 30rem;
-
-  @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {
-    grid-area: content;
+    box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   }
 `;
 
 const InfoBarStub = styled.div`
   min-height: 10rem;
   background-color: ${Colors.SECONDARY};
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
 
   @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {
     grid-area: infobar;
@@ -57,7 +52,7 @@ class App extends React.Component {
       <AppContainer>
         <NavBar links={navLinks} />
         <InfoBarStub />
-        <ContentStub />
+        <DonationsContainer />
       </AppContainer>
     );
   }
