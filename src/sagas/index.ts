@@ -55,6 +55,8 @@ export function* updateParticipant() {
 
 export function* startup() {
   yield put({ type: ParticipantActionTypes.PARTICIPANT_REQUESTED, id: 328557 });
+  const { participant } = yield take(ParticipantActionTypes.PARTICIPANT_SUCCESSFUL);
+  yield put({ type: DonationActionTypes.DONATIONS_REQUESTED, participant });
 }
 
 export default function* root() {

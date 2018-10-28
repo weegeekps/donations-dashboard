@@ -2,6 +2,7 @@ import * as React from 'react';
 import styled from 'styled-components';
 
 import NavBar, { INavBarLink } from './components/navbar';
+import DonationsContainer from './containers/donations';
 import { Breakpoints, Colors } from './styles';
 
 const AppContainer = styled.div`
@@ -19,14 +20,6 @@ const AppContainer = styled.div`
     grid-template-areas:
       'navbar navbar'
       'content infobar';
-  }
-`;
-
-const ContentStub = styled.div`
-  min-height: 30rem;
-
-  @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {
-    grid-area: content;
   }
 `;
 
@@ -57,7 +50,7 @@ class App extends React.Component {
       <AppContainer>
         <NavBar links={navLinks} />
         <InfoBarStub />
-        <ContentStub />
+        <DonationsContainer />
       </AppContainer>
     );
   }
