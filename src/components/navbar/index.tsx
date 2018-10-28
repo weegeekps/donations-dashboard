@@ -47,7 +47,9 @@ function NavBar(props: INavBarProps) {
       <NavImage src={logo} alt="Adam's Extra Life Donations" />
       <NavLinks>
         {links.map(l => (
-          <NavLink href={l.targetUrl}>{l.displayName}</NavLink>
+          <NavLink key={l.targetUrl} href={l.targetUrl}>
+            {l.displayName}
+          </NavLink>
         ))}
       </NavLinks>
     </div>
