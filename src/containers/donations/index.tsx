@@ -24,7 +24,7 @@ function DonationContainer(props: IDonationContainerProps) {
   );
 }
 
-function mapStateToProps(state: IAppState) {
+function mapStateToProps(state: IAppState): IDonationContainerProps {
   const {
     donations: { values: donations },
   } = state;

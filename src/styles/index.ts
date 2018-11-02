@@ -10,3 +10,9 @@ export enum Breakpoints {
   TABLET_WIDTH = '34rem',
   DESKTOP_WIDTH = '60rem',
 }
+
+export enum FontFamilies {
+  CANTARELL = "'Cantarell', sans-serif",
+  FURORE = "'Furore', 'Cantarell', sans-serif",
+  NUNITO = "'Nunito', sans-serif",
+}

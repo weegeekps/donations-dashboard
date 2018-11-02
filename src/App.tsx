@@ -3,7 +3,8 @@ import styled from 'styled-components';
 
 import NavBar, { INavBarLink } from './components/navbar';
 import DonationsContainer from './containers/donations';
-import { Breakpoints, Colors } from './styles';
+import InfoBarContainer from './containers/info-bar';
+import { Breakpoints } from './styles';
 
 const AppContainer = styled.div`
   margin-left: auto;
@@ -24,16 +25,6 @@ const AppContainer = styled.div`
   }
 `;
 
-const InfoBarStub = styled.div`
-  min-height: 10rem;
-  background-color: ${Colors.SECONDARY};
-  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
-
-  @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {
-    grid-area: infobar;
-  }
-`;
-
 // TODO: Move this to a JSON or something easy to modify.
 const navLinks: INavBarLink[] = [
   {
@@ -51,7 +42,7 @@ class App extends React.Component {
     return (
       <AppContainer>
         <NavBar links={navLinks} />
-        <InfoBarStub />
+        <InfoBarContainer />
         <DonationsContainer />
       </AppContainer>
     );
