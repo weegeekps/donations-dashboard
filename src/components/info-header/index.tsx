@@ -17,5 +17,5 @@ function InfoHeader(props: IInfoHeader) {
 export default styled(InfoHeader)`
   color: ${Colors.HIGHLIGHT};
   font-family: ${FontFamilies.FURORE};
-  font-size: 1rem;
+  font-size: 1.5rem;
 `;
