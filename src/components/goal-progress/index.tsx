@@ -22,5 +22,6 @@ function GoalProgress(props: IGoalProgress) {
 export default styled(GoalProgress)`
   color: ${Colors.WHITE};
   font-family: ${FontFamilies.FURORE};
+  font-size: 1.5rem;
   text-align: center;
 `;

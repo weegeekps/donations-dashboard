@@ -45,8 +45,9 @@ export default styled(connect(mapStateToProps)(InfoBarContainer))`
   padding-bottom: 1.5rem;
 
   @media (min-width: ${Breakpoints.TABLET_WIDTH}) {
-    flex-direction: row;
     align-items: flex-start;
+    flex-direction: row;
+    padding-bottom: 0;
   }
 
   @media (min-width: ${Breakpoints.DESKTOP_WIDTH}) {

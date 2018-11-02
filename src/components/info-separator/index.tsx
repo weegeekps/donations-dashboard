@@ -3,11 +3,11 @@ import styled from 'styled-components';
 
 import { Breakpoints, Colors } from '../../styles';
 
-export interface IInfoSeparator {
+export interface IInfoSeparatorProps {
   className?: string;
 }
 
-function InfoSeparator(props: IInfoSeparator) {
+function InfoSeparator(props: IInfoSeparatorProps) {
   const { className } = props;
 
   return <div className={className} />;

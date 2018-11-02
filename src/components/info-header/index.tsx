@@ -18,4 +18,5 @@ export default styled(InfoHeader)`
   color: ${Colors.HIGHLIGHT};
   font-family: ${FontFamilies.FURORE};
   font-size: 1.5rem;
+  margin: 0 0 1rem 0;
 `;
