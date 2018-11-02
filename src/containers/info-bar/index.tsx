@@ -4,6 +4,7 @@ import styled from 'styled-components';
 
 import { Breakpoints, Colors } from 'src/styles';
 import ParticipantName from '../../components/participant-name';
+import ProgressCounter from '../../components/progress-counter';
 import { IAppState, IParticipant } from '../../interfaces';
 
 export interface IInfoBarContainerProps {
@@ -17,6 +18,7 @@ function InfoBarContainer(props: IInfoBarContainerProps) {
   return (
     <div className={className}>
       <ParticipantName name={participant.displayName} />
+      <ProgressCounter {...participant} />
     </div>
   );
 }
@@ -35,6 +37,7 @@ export default styled(connect(mapStateToProps)(InfoBarContainer))`
   background-color: ${Colors.SECONDARY};
   box-shadow: 0 2px 2px 0 rgba(0, 0, 0, 0.14), 0 3px 1px -2px rgba(0, 0, 0, 0.2), 0 1px 5px 0 rgba(0, 0, 0, 0.12);
   display: flex;
+  flex-direction: column;
   justify-content: center;
   min-height: 10rem;
 
