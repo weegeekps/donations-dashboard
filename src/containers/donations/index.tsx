@@ -5,6 +5,7 @@ import styled from 'styled-components';
 import { IAppState, IDonation } from 'src/interfaces';
 import { Breakpoints } from 'src/styles';
 import DonationCard from '../../components/donation-card';
+import Footer from '../../components/footer';
 
 export interface IDonationContainerProps {
   className?: string;
@@ -20,6 +21,7 @@ function DonationContainer(props: IDonationContainerProps) {
         // TODO: Need to come up with a better key here. This can have collisions.
         <DonationCard key={d.createdDateUTC} donation={d} />
       ))}
+      <Footer />
     </div>
   );
 }
