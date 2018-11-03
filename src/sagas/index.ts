@@ -58,7 +58,7 @@ export function* updateParticipant() {
 
 export function* startTimer() {
   const timer: ITimer = {
-    endTime: DateTime.fromISO('2018-11-04T09:00:00-05:00'),
+    endTime: DateTime.fromISO('2018-11-04T09:00:00-06:00'),
     startTime: DateTime.local(),
   };
 

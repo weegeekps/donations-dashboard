@@ -112,6 +112,7 @@
       }
     }
   },
+  "homepage": "http://www.anmorris.org/donations",
   "babel": {
     "presets": [
       "react-app"
