@@ -7,6 +7,7 @@ import InfoSeparator from '../../components/info-separator';
 import ParticipantName from '../../components/participant-name';
 import ProgressCounter from '../../components/progress-counter';
 import { IAppState, IParticipant } from '../../interfaces';
+import TimeLeftContainer from '../time-left';
 
 export interface IInfoBarContainerProps {
   className?: string;
@@ -19,6 +20,8 @@ function InfoBarContainer(props: IInfoBarContainerProps) {
   return (
     <div className={className}>
       <ParticipantName name={participant.displayName} />
+      <InfoSeparator />
+      <TimeLeftContainer />
       <InfoSeparator />
       <ProgressCounter current={participant.sumDonations} goal={participant.fundraisingGoal} />
     </div>

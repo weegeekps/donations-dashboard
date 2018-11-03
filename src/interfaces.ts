@@ -1,3 +1,5 @@
+import { DateTime, Interval } from 'luxon';
+
 export interface IDonation {
   amount: number;
   avatarImageURL: string;
@@ -21,6 +23,12 @@ export interface IParticipant {
   sumPledges: number;
 }
 
+export interface ITimer {
+  startTime: DateTime;
+  endTime: DateTime;
+  timeLeftInterval?: Interval;
+}
+
 export interface IAppState {
   donations: {
     isFetching: boolean;
@@ -29,5 +37,9 @@ export interface IAppState {
   participant: {
     isFetching: boolean;
     value: IParticipant;
+  };
+  timer: {
+    isRunning: boolean;
+    value: ITimer;
   };
 }

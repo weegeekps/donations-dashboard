@@ -1,13 +1,16 @@
 import { combineReducers } from 'redux';
 import {
+  IEndTimerAction,
   IFailedDonationsAction,
   IFailedParticipantAction,
   IRequestDonationsAction,
   IRequestParticipantAction,
+  IStartTimerAction,
   ISuccessfulDonationsAction,
   ISuccessfulParticipantAction,
+  ITickTimerAction,
 } from 'src/actions';
-import { DonationActionTypes, ParticipantActionTypes } from 'src/actions/types';
+import { DonationActionTypes, ParticipantActionTypes, TimerActionTypes } from 'src/actions/types';
 
 // TODO: Eventually these reducers should be moved to a file unique to their purpose. Ex. donations.js
 type DonationActions = IRequestDonationsAction | ISuccessfulDonationsAction | IFailedDonationsAction;
@@ -52,7 +55,29 @@ function participant(
   }
 }
 
+type TimerActions = IStartTimerAction | IEndTimerAction | ITickTimerAction;
+
+function timer(
+  state = {
+    isRunning: false,
+    value: {},
+  },
+  action: TimerActions
+) {
+  switch (action.type) {
+    case TimerActionTypes.TIMER_START:
+      return { ...state, isRunning: true, value: action.timer };
+    case TimerActionTypes.TIMER_TICK:
+      return { ...state, value: action.timer };
+    case TimerActionTypes.TIMER_END:
+      return { ...state, isRunning: false, value: {} };
+    default:
+      return state;
+  }
+}
+
 export default combineReducers({
   donations,
   participant,
+  timer,
 });
