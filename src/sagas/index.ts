@@ -1,9 +1,12 @@
 import * as fetch from 'isomorphic-fetch';
-import { call, fork, put, take } from 'redux-saga/effects';
+import { DateTime, Interval } from 'luxon';
+import { delay } from 'redux-saga';
+import { call, fork, put, select, take } from 'redux-saga/effects';
 
 import { DonationActionTypes, ParticipantActionTypes } from 'src/actions/types';
-import { IParticipant } from 'src/interfaces';
+import { IParticipant, ITimer } from 'src/interfaces';
 import * as actions from '../actions';
+import * as selectors from '../selectors';
 
 export function fetchDonationsApi(participant: IParticipant) {
   const url = `https://www.extra-life.org/api/participants/${participant.participantID}/donations`;
@@ -53,6 +56,33 @@ export function* updateParticipant() {
   }
 }
 
+export function* startTimer() {
+  const timer: ITimer = {
+    endTime: DateTime.fromISO('2018-11-04T09:00:00-05:00'),
+    startTime: DateTime.local(),
+  };
+
+  yield put(actions.startTimer(timer));
+  yield call(tickTimer);
+}
+
+export function* tickTimer() {
+  while (true) {
+    const isRunning = yield select(selectors.isTimerRunning);
+
+    if (isRunning) {
+      const currentTimerState: ITimer = yield select(selectors.timerValue);
+      const newTimerState: ITimer = {
+        ...currentTimerState,
+        timeLeftInterval: Interval.fromDateTimes(DateTime.local(), currentTimerState.endTime),
+      };
+
+      yield put(actions.tickTimer(newTimerState));
+      yield delay(1000); // Under the covers this does a setTimeout.
+    }
+  }
+}
+
 export function* startup() {
   yield put({ type: ParticipantActionTypes.PARTICIPANT_REQUESTED, id: 328557 });
   const { participant } = yield take(ParticipantActionTypes.PARTICIPANT_SUCCESSFUL);
@@ -63,4 +93,6 @@ export default function* root() {
   yield fork(startup);
   yield fork(updateParticipant);
   yield fork(updateDonations);
+  yield fork(startTimer);
+  yield fork(tickTimer);
 }

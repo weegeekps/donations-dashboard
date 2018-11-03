@@ -1,5 +1,5 @@
-import { IDonation, IParticipant } from 'src/interfaces';
-import { DonationActionTypes, ParticipantActionTypes } from './types';
+import { IDonation, IParticipant, ITimer } from 'src/interfaces';
+import { DonationActionTypes, ParticipantActionTypes, TimerActionTypes } from './types';
 
 // TODO: These actions should eventually be moved into a file unique to their purpose. Ex. donations.js
 export interface IRequestDonationsAction {
@@ -75,5 +75,39 @@ export function failedParticipant(error: Error): IFailedParticipantAction {
   return {
     error,
     type: ParticipantActionTypes.PARTICIPANT_FAILED,
+  };
+}
+
+export interface IStartTimerAction {
+  readonly timer: ITimer;
+  readonly type: TimerActionTypes.TIMER_START;
+}
+
+export function startTimer(timer: ITimer): IStartTimerAction {
+  return {
+    timer,
+    type: TimerActionTypes.TIMER_START,
+  };
+}
+
+export interface ITickTimerAction {
+  readonly timer: ITimer;
+  readonly type: TimerActionTypes.TIMER_TICK;
+}
+
+export function tickTimer(timer: ITimer): ITickTimerAction {
+  return {
+    timer,
+    type: TimerActionTypes.TIMER_TICK,
+  };
+}
+
+export interface IEndTimerAction {
+  readonly type: TimerActionTypes.TIMER_END;
+}
+
+export function endTimer(): IEndTimerAction {
+  return {
+    type: TimerActionTypes.TIMER_END,
   };
 }

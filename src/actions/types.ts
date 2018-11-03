@@ -9,3 +9,9 @@ export enum ParticipantActionTypes {
   PARTICIPANT_SUCCESSFUL = 'PARTICIPANT_SUCCESSFUL',
   PARTICIPANT_FAILED = 'PARTICIPANT_FAILED',
 }
+
+export enum TimerActionTypes {
+  TIMER_START = 'TIMER_START',
+  TIMER_TICK = 'TIMER_TICK',
+  TIMER_END = 'TIMER_END',
+}
